@@ -1,0 +1,13 @@
+sequenceDiagram
+ participant U as 主程序 / 伴奏
+ participant X as EXTI 中断
+ participant T as 定时器 PWM
+ U->>T: 配置伴奏通道频率与占空比
+ Note over T: 硬件持续计数并输出
+ U->>U: 等待或处理下一事件
+ Note over X: 琴键边沿到来
+ X->>X: 检查标志与输入电平
+ X->>T: 更新旋律通道
+ X->>X: 清除中断标志
+ X-->>U: 返回被中断的位置
+ U->>U: 继续原流程

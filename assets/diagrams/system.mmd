@@ -1,0 +1,16 @@
+flowchart TB
+ subgraph input[演奏者的输入]
+  K[七个琴键] ~~~ E[编码器与功能键] ~~~ J[摇杆]
+ end
+ subgraph app[STM32 应用逻辑]
+  N[音高与音色] ~~~ S[模式与参数] ~~~ A[和弦与伴奏序列]
+ end
+ subgraph output[可以听见和看见的反馈]
+  P[旋律 · TIM2 / PA0] ~~~ Q[伴奏 · TIM3 / PA7] ~~~ V[OLED 与节拍灯]
+ end
+ K --> N
+ E --> S
+ J --> A
+ N --> P
+ A --> Q
+ S --> V

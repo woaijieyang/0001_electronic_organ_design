@@ -1,0 +1,23 @@
+flowchart TB
+ A[acmp 选择风格数组] --> B[introPlay
+isPlaying = 1]
+ B --> C{前奏开启？}
+ C -->|是| D[播放 beat 个前奏鼓事件]
+ C -->|否| E[进入主段]
+ D --> E
+ E --> F[按当前 i 读取摇杆
+更新和弦]
+ F --> G{摇杆按下？}
+ G -->|是| H[从 i % beat 开始加花
+到组末后回主段首项]
+ H --> E
+ G -->|否| I[点亮 LED
+按 track 输出鼓与琶音]
+ I --> J[读取编码器调速度
+检查结束按键]
+ J -->|继续| K[i 前进，序列结束后回 0]
+ K --> F
+ J -->|结束| L[endingPlay
+按 section 播放尾声]
+ L --> M[收尾等待 500 ms
+isPlaying = 0]

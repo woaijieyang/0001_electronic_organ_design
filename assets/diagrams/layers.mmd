@@ -1,0 +1,20 @@
+flowchart TB
+ M[User/main.c
+状态 · 音乐 · 模式 · 琴键 ISR]
+ M --> B[Buzzer
+频率 / 占空比 / 时长]
+ M --> I[Key / Keyboard / Encoder
+按键与方向事件]
+ M --> J[JoyStick / AD
+模拟位置与按压]
+ M --> O[OLED / LED
+可见反馈]
+ B --> P[System/PWM.c
+TIM2 / TIM3]
+ B --> D[System/Delay.c
+SysTick 轮询]
+ P --> L[ST 标准外设库 / CMSIS]
+ I --> L
+ J --> L
+ O --> L
+ D --> L

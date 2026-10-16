@@ -1,0 +1,11 @@
+flowchart LR
+ H[HSE 8 MHz] --> P[PLL × 9]
+ P --> C[SYSCLK / HCLK
+72 MHz]
+ C --> A[APB1 ÷ 2
+36 MHz]
+ A --> T[TIM2 / TIM3
+定时器时钟 × 2]
+ T --> B[PSC + 1 分频]
+ B --> N[ARR + 1 = 100
+输出 PWM]

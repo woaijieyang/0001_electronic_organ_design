@@ -1,0 +1,11 @@
+flowchart LR
+ A[音序 number] --> B{等于 0？}
+ B -->|是| Z[返回 0]
+ B -->|否| C[序号减 1]
+ C --> D[模 4 选和弦音
+除 4 选八度]
+ H[chordType
+选择结构与根音倍率] --> D
+ D --> E[转换为整数 freq]
+ E --> F[乘 transpose 的 tsp 项
+返回和弦频率]

@@ -1,0 +1,16 @@
+# Keil generated artifacts and per-machine state
+firmware/Objects/
+firmware/Listings/
+firmware/RTE/
+*.uvguix.*
+*.uvoptx
+*.bak
+*.o
+*.d
+*.crf
+*.axf
+*.build_log.htm
+__pycache__/
+.venv/
+node_modules/
+.DS_Store

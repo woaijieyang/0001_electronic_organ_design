@@ -1,0 +1,14 @@
+# Normalize documentation, while preserving the Keil source bytes and encoding.
+* text=auto eol=lf
+firmware/** -text
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.py text eol=lf
+*.cjs text eol=lf
+*.svg text eol=lf
+*.png binary
+*.jpg binary
+*.gif binary
+*.mp4 binary

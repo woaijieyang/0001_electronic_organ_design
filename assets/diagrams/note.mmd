@@ -1,0 +1,12 @@
+flowchart TB
+ A[PB12 按下 · 上升沿] --> B[EXTI15_10_IRQHandler
+检查 EXTI12 与输入电平]
+ B --> C[普通音色分支
+Buzzer_Reset 通道 1]
+ C --> D[频率 = 262 × 1 × 2 × 1
+默认值 524 Hz]
+ D --> E[Buzzer_ON
+TIM2：PSC = 1373 / CCR = 50]
+ E --> F[定时器持续输出]
+ F --> G[PB12 松开 · 下降沿
+CCR = 0，关闭旋律通道]
