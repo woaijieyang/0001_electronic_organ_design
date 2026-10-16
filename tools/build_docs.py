@@ -98,6 +98,6 @@ def main():
   inner=f'<main class="code-page"><a href="../{NAME}.html">← 返回技术文档</a><h2>{html.escape(rel)}</h2><p><a href="../firmware/{rel}">下载源文件</a></p><div class="code-lines">{lines}</div></main>'
   (R/'code'/code_name(rel)).write_text(shell(rel,top('../')+inner,prefix='../'),encoding='utf-8')
  home=(R/'tools/home.template.html').read_text(encoding='utf-8').replace('{DOC}',NAME)
- (R/'index.html').write_text(shell('电子琴设计 · 张鑫',top()+home+footer()),encoding='utf-8')
+ (R/'index.html').write_text(shell('电子琴设计',top()+home+footer()),encoding='utf-8')
  print('HTML, home and source viewers built; headings',len(headings))
 if __name__=='__main__':main()

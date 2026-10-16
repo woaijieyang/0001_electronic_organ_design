@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/figures/readme-cover.png" alt="山东大学 · 电子琴设计 · 从第一次发声，到完整演奏" width="100%">
+  <img src="assets/figures/readme-cover.png?v=2" alt="山东大学 · 电子琴设计 · 从第一次发声，到完整演奏" width="100%">
 </p>
 
 <p align="center">
@@ -86,7 +86,5 @@ tools/           文档和图表生成工具
 </details>
 
 ---
-
-**团队** &nbsp; 张鑫 · 程序开发　雷涯棋 · 硬件操作　雷伊涵 · 报告整理
 
 [Apache-2.0](LICENSE)

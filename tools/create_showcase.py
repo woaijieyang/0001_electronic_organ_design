@@ -21,7 +21,7 @@ c+=text(63,163,'STM32  /  PROJECT 2024',15,RED,'600')
 c+=text(56,253,'电子琴设计',73,INK,'700','SimSun')
 c+=text(64,305,'从第一次发声，到完整演奏。',28,RED)
 c+=text(64,355,'七个琴键 · 双路 PWM · 六种伴奏',21,MUTED)
-c+=rect(64,389,61,3,RED)+text(64,438,'张鑫  /  程序开发',19,INK)
+c+=rect(64,389,61,3,RED)
 c+=rect(670,107,700,408,'#efe3d8',18)
 c+=f'<image x="686" y="123" width="668" height="376" preserveAspectRatio="xMidYMid meet" xlink:href="{data("assets/photos/instrument.jpg")}"/>'
 
