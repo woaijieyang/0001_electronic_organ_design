@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="#demo"><strong>观看演奏</strong></a> ·
-  <a href="电子琴设计_技术文档.md"><strong>技术文档</strong></a> ·
-  <a href="电子琴设计_技术文档.html"><strong>网页阅读版</strong></a> ·
+  <a href="https://woaijieyang.github.io/0001_electronic_organ_design/#demo"><strong>观看演奏</strong></a> ·
+  <a href="https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html"><strong>在线技术文档</strong></a> ·
+  <a href="电子琴设计_技术文档.md"><strong>Markdown 文档</strong></a> ·
   <a href="firmware/User/main.c"><strong>程序源码</strong></a> ·
   <a href="#build"><strong>构建与运行</strong></a>
 </p>
@@ -17,9 +17,9 @@
 <a id="demo"></a>
 ## 先听一段
 
-[![电子琴演奏预览](assets/video/demo-preview.gif)](assets/video/demo-short.mp4)
+[![电子琴演奏预览](assets/video/demo-preview.gif)](https://woaijieyang.github.io/0001_electronic_organ_design/assets/video/demo-short.mp4)
 
-**[15 秒演奏片段 ↗](assets/video/demo-short.mp4)** &nbsp; · &nbsp; **[完整演示 · 2 分 19 秒 ↗](assets/video/demo-full.mp4)**
+**[15 秒演奏片段 ↗](https://woaijieyang.github.io/0001_electronic_organ_design/assets/video/demo-short.mp4)** &nbsp; · &nbsp; **[完整演示 · 2 分 19 秒 ↗](https://woaijieyang.github.io/0001_electronic_organ_design/#demo)** &nbsp; · &nbsp; [原视频下载](https://github.com/woaijieyang/0001_electronic_organ_design/releases/download/v1.0.0/VID20241226160603.mp4)
 
 ## 从七个琴键，做到旋律与伴奏
 
@@ -43,11 +43,11 @@
 
 | 从哪里开始 | 会读到什么 |
 |---|---|
-| [我的工作与调试经历](电子琴设计_技术文档.md) | 程序如何划分，遇到问题时怎样逐层定位，以及如何使用 AI 辅助分析 |
-| [第一个琴键为什么是 524 Hz](电子琴设计_技术文档.md#chapter-3) | 从 EXTI 到音高公式，再到定时器 PSC 与 CCR |
-| [一段伴奏怎样写进数组](电子琴设计_技术文档.md#chapter-6) | 六种风格、事件序列、和弦与时间分配 |
-| [旋钮和摇杆怎样复用](电子琴设计_技术文档.md#chapter-7) | 模式切换、参数选择、ADC 方向判断和显示 |
-| [变量与配置速查](电子琴设计_技术文档.md#appendix) | 含义、取值理由、调整效果和源码位置 |
+| [我的工作与调试经历](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html) | 程序如何划分，遇到问题时怎样逐层定位，以及如何使用 AI 辅助分析 |
+| [第一个琴键为什么是 524 Hz](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-3) | 从 EXTI 到音高公式，再到定时器 PSC 与 CCR |
+| [一段伴奏怎样写进数组](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-6) | 六种风格、事件序列、和弦与时间分配 |
+| [旋钮和摇杆怎样复用](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-7) | 模式切换、参数选择、ADC 方向判断和显示 |
+| [变量与配置速查](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#appendix) | 含义、取值理由、调整效果和源码位置 |
 
 <details>
 <summary><strong>展开系统架构</strong></summary>
@@ -61,10 +61,10 @@
 
 1. 使用支持 **ARM Compiler 5** 的 Keil MDK，安装 STM32F1 器件支持包。
 2. 打开 [`firmware/Project.uvprojx`](firmware/Project.uvprojx)，目标器件为 **STM32F103C8**；工程工具链为 ARMCC 5.06 update 5。
-3. 按[引脚与接线](电子琴设计_技术文档.md#chapter-2)连接外设，确认供电、地线与 SWD 接口。
+3. 按[引脚与接线](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-2)连接外设，确认供电、地线与 SWD 接口。
 4. Rebuild 后，通过 ST-LINK/SWD 下载；从单键、音色和音域开始，再检查伴奏与交互。
 
-[查看完整构建步骤 →](电子琴设计_技术文档.md#chapter-10)
+[查看完整构建步骤 →](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-10)
 
 <details>
 <summary><strong>工程目录</strong></summary>

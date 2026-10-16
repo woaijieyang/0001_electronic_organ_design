@@ -1,6 +1,6 @@
 """Build local/offline HTML from the canonical Markdown and preserved source."""
 from pathlib import Path
-import re,html,json
+import re,html,json,hashlib
 import markdown
 from pygments import lex
 from pygments.lexers import CLexer
@@ -20,7 +20,8 @@ def colored_lines(txt):
  if txt.endswith('\n'):lines.pop()
  return ''.join(f'<span class="code-line" id="L{i}"><a class="line-no" href="#L{i}">{i}</a>{line}</span>' for i,line in enumerate(lines,1))
 def shell(title,body,extra='',prefix=''):
- return f'''<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><meta name="description" content="从一次琴键按下，到双通道声音、六种伴奏与完整交互：STM32电子琴的程序设计、参数解释与调试方法。"><link rel="stylesheet" href="{prefix}assets/styles/document.css"><link rel="stylesheet" href="{prefix}assets/styles/showcase.css">{extra}</head><body>{body}</body></html>'''
+ version=hashlib.sha256((R/'assets/styles/showcase.css').read_bytes()).hexdigest()[:10]
+ return f'''<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><meta name="description" content="从一次琴键按下，到双通道声音、六种伴奏与完整交互：STM32电子琴的程序设计、参数解释与调试方法。"><link rel="stylesheet" href="{prefix}assets/styles/document.css"><link rel="stylesheet" href="{prefix}assets/styles/showcase.css?v={version}">{extra}</head><body>{body}</body></html>'''
 def top(prefix=''):
  return f'''<header class="topbar"><a class="brand" href="{prefix}index.html"><img class="seal" src="{prefix}assets/photos/sdu-emblem.png" alt="山东大学校徽" width="42" height="42"><span><strong>山东大学</strong><small>SHANDONG UNIVERSITY</small></span></a><nav class="top-actions"><a href="{prefix}index.html">项目首页</a><a href="{prefix}{NAME}.md" class="desktop-only">Markdown</a><a href="{prefix}{NAME}.html#chapter-10">演示与复现</a></nav></header><div class="progress"></div>'''
 def hero(home=False):

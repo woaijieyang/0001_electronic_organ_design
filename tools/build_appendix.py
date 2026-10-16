@@ -342,7 +342,7 @@ def build():
     ]))
 
     p=ROOT/'电子琴设计_技术文档.md';base=p.read_text(encoding='utf-8').split('<!-- GENERATED_APPENDIX -->')[0]
-    p.write_text(base+'<!-- GENERATED_APPENDIX -->\n\n'+'\n'.join(out),encoding='utf-8')
+    p.write_text((base+'<!-- GENERATED_APPENDIX -->\n\n'+'\n'.join(out)).rstrip()+'\n',encoding='utf-8')
     return inv,rows
 if __name__=='__main__':
     inv,seq=build();print(json.dumps({k:len(v) for k,v in inv.items()},ensure_ascii=False))
