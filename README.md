@@ -43,7 +43,7 @@
 
 | 从哪里开始 | 会读到什么 |
 |---|---|
-| [我的工作与调试经历](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html) | 程序如何划分，遇到问题时怎样逐层定位，以及如何使用 AI 辅助分析 |
+| [我的工作与调试经历](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html) | 分层实现、基础配置检查、隔离测试、接口排查与整机回归 |
 | [第一个琴键为什么是 524 Hz](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-3) | 从 EXTI 到音高公式，再到定时器 PSC 与 CCR |
 | [一段伴奏怎样写进数组](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-6) | 六种风格、事件序列、和弦与时间分配 |
 | [旋钮和摇杆怎样复用](https://woaijieyang.github.io/0001_electronic_organ_design/电子琴设计_技术文档.html#chapter-7) | 模式切换、参数选择、ADC 方向判断和显示 |

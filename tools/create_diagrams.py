@@ -101,17 +101,10 @@ graphs={
  U->>U: 继续原流程
 ''',
 'debug':'''flowchart TB
- A[明确输入、预期与实际现象] --> B[重复操作，确认触发条件]
- B --> C[分层定位\n构建 / 输入 / 状态 / 计算 / 输出]
- C --> D[缩小代码范围\n检查变量、配置和调用关系]
- D --> E{能解释原因？}
- E -->|可以| F[提出最小修改]
- E -->|需要帮助| G[向 AI 提供上下文与已做检查]
- G --> H[人工检查接口、逻辑与时序]
- H --> F
- F --> I[重新构建\n复现原操作与相邻功能]
- I -->|仍不符合预期| C
- I -->|符合预期| J[归纳现象、原因与有效修改]
+ A[梳理整体流程与复现条件] --> B[排除基础配置问题]
+ B --> C[分层隔离测试]
+ C --> D[检查模块内部逻辑与模块间接口]
+ D --> E[恢复连续运行并回归整体验证]
 ''',
 'validation':'''flowchart LR
  A[上电与屏幕\n默认参数] --> B[单键与松键\n两路声音]
@@ -186,4 +179,19 @@ c+=f'<path d="M485,370 L485,290 L615,290 L615,262" fill="none" stroke="#8f1d2c" 
 c+=txt(332,328,'编码器按键','small')+txt(332,353,'尾声与收尾','small')
 c+=txt(75,548,'切换设置模式时 knob 回到 1；伴奏结束后 isPlaying 回到 0。','small')
 (F/'modes.svg').write_text(svg(970,580,c),encoding='utf-8')
-print('diagram sources',len(graphs),'native svg',5)
+c=arrow+txt(34,43,'电子琴的五步调试流程','title')
+steps=[
+ ('梳理整体流程','固定模式、参数与操作顺序','沿输入、状态、计算和输出确定观察位置'),
+ ('排除基础配置问题','检查工程路径、接线、时钟、GPIO 与中断','从电平变化开始，再看中断映射和使能'),
+ ('分层隔离测试','直接传入有效频率与占空比，单独测试声音输出','根据结果转向驱动和硬件，或回查输入与计算'),
+ ('检查内部逻辑与模块接口','核对倍率、事件索引、共享变量和调用顺序','一次只改变相关条件，恢复连续运行检查时序'),
+ ('回归整体验证','重复原异常操作，再检查模式切换和完整演奏','记录现象、假设、验证结果与修改原因'),
+]
+for i,(title,a,b) in enumerate(steps):
+ y=78+i*135
+ c+=f'<circle cx="56" cy="{y+51}" r="22" fill="#8f1d2c"/>'+txt(50,y+58,str(i+1),'label','#fff')
+ c+=f'<rect x="99" y="{y}" width="778" height="108" rx="12" fill="#fff" stroke="#d8c3bc"/>'
+ c+=txt(122,y+31,title,'label')+txt(122,y+62,a,'small')+txt(122,y+87,b,'small')
+ if i<4:c+=edge(488,y+111,488,y+129)
+(F/'debug.svg').write_text(svg(920,772,c),encoding='utf-8')
+print('diagram sources',len(graphs),'native svg',6)
